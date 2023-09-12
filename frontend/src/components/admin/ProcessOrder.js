@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import MetaData from "../layout/MetaData";
 import { Link, useParams } from "react-router-dom";
-import { Typography } from "@material-ui/core";
 import {
   getOrderDetails,
   clearErrors,
@@ -12,7 +11,7 @@ import { useAlert } from "react-alert";
 import "./processOrder.css";
 import { MdAccountTree } from 'react-icons/md';
 import Loader from '../layout/Loader/Loaders';
-import { Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import Sidebar from './Sidesbar';
 import { UPDATE_ORDERS_RESET } from '../../constants/orderConstant';
 

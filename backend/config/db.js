@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-dotenv.config();
+dotenv.config({ path: './config.env' });
 
 const connectDatabase =( )=>{
 

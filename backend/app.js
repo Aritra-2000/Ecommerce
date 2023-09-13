@@ -16,7 +16,9 @@ import order from "./routes/orderRoute.js";
 import payment from "./routes/paymentRoute.js";
 
 // config
-dotenv.config({path:"backend/config/config.env"});
+if (process.env.NODE_ENV !== "PODUCTION"){
+    dotenv.config({path:"backend/config/config.env"});
+}
 
 const __filename = fileURLToPath(import.meta.url);
 

@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import fileUpload from "express-fileupload";
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 import ErrorMiddleware from './middleware/error.js'
 
@@ -20,6 +21,14 @@ app.use(express.json({ limit: '50mb'}));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(fileUpload());
+
+// app.use(cors(
+//     {
+//         origin: [],
+//         methods: ["POST", "GET"],
+//         credentials: true
+//     }
+// ));
 
 app.use("/api/v1", product);
 app.use("/api/v1", user);

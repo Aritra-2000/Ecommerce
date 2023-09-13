@@ -20,6 +20,7 @@ if (process.env.NODE_ENV !== "PODUCTION"){
     dotenv.config({path:"backend/config/config.env"});
 }
 
+
 const __filename = fileURLToPath(import.meta.url);
 
 const __dirname = path.dirname(__filename);
@@ -35,11 +36,13 @@ app.use("/api/v1", order);
 app.use("/api/v1", payment);
 
 
-app.use(express.static(path.join(__dirname,"../frontend/build")));
+if(process.env.NODE_ENV){
+app.use(express.static("../frontend/build"));
 
 app.get("*",(req,res) => {
-    res.sendFile(path.resolve(__dirname,"../frontend/build/index.html"));
-})
+    res.sendFile(path.resolve(__dirname,"../frontend/build/", "index.html"));
+});
+}
 
 // Middleware for Errors
 app.use(ErrorMiddleware);

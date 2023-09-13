@@ -11,7 +11,9 @@ process.on("uncaughtException",(err)=>{
 });
 
 // config
-dotenv.config({path:"backend/config/config.env"});
+if (process.env.NODE_ENV !== "PODUCTION"){
+    dotenv.config({path:"backend/config/config.env"});
+}
 
 // connecting to Database
 connectDatabase();
